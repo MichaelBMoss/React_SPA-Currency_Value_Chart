@@ -1,0 +1,195 @@
+/*Establishes variables for the various colors used.*/
+:root {
+    --light-grey: #EDDFDF;
+    --medium-grey: #dbc9c9;
+    --dark-grey: #9e9696;
+    --light-blue: #6252EA;
+    --dark-blue: #183661;
+    --off-white: #fbf0f0;
+}
+
+/* Creates absolute positioning for the entire page body so that children can be given percentage based sizes. Establishes general font, font color and font size. Creates a flex box for the header and body. */
+.Body-div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    color: var(--dark-blue);
+}
+
+/* Inserts text to the left of the graph */
+
+/*Creates the header.*/
+.Header {
+    background-color: var(--dark-blue);
+    width: 100%;
+    height: 11%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: 6px solid var(--dark-blue);
+}
+
+/*Inserts text on the header.*/
+.Header-content {
+    margin-left: 7%;
+    font-size: 31px;
+    color: var(--off-white);
+}
+
+.SidebarAndBodyBox {
+    width: 100%;
+    height: 89%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.SidebarBox {
+    background-color: var(--light-grey);
+    width: 11%;
+    height: 100%;
+    border-right: 6px solid var(--dark-blue);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.InputBox {
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*Creates the page body.*/
+.BodyBox {
+    height: 100%;
+    width: 89%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--off-white);
+}
+
+/*Creates the graph box.*/
+.BodyBox-graph {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 85%;
+    width: 85%;
+    background-color: var(--light-grey);
+    border: 6px solid var(--dark-blue);
+    overflow: hidden;
+}
+
+/*Graph upper and graph lower split the graph into 2 parts so that bars of a currency value greater than 100% of a USD will not protrude beyond the top of the graph. A border-bottom on graph upper is used to create the dashed line indicating the value of 1 USD. */
+.BodyBox-graph-upper {
+    height: 21%;
+    width: 100%;
+    text-align: center;
+}
+
+.InitialTextFade {
+    font-size: 60px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.ContainerOfGraphLower {
+    height: 79%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    
+}
+
+.BodyBox-graph-lower {
+    height: 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    transition: height .5s;
+}
+
+/*The bars are placed in graph lower. They have a padding transition.*/
+.BodyBox-graph-lower-bar {
+    transition: padding-left 1.5s, padding-right 1.5s, padding-bottom 1.5s;
+    width: 13%;
+    background-color: var(--dark-grey);
+    text-align: center;
+    border-top: 2px solid var(--dark-blue);
+    border-left: 2px solid var(--dark-blue);
+    border-right: 2px solid var(--dark-blue);
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 12%;
+    opacity: 1;
+    transition: padding 2s;
+}
+
+.bar1 {
+}
+
+.bar2 {
+}
+
+.bar3 {
+}
+
+.bar4 {
+}
+
+.bar5 {
+}
+
+
+/*The bars grow in size on hover.*/
+.BodyBox-graph-lower-bar:hover {
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 100px;
+}
+
+/*Invisible text is placed in each bar with opacity 0.*/
+.BodyBox-graph-lower-bar-invisibleText {
+    opacity: 0;
+    transition: opacity 2s;
+    font-size: 18px;
+}
+
+/*Opacity transitions to 1 to make text visible on hover.*/
+.BodyBox-graph-lower-bar:hover .BodyBox-graph-lower-bar-invisibleText {
+    opacity:1;
+}
+
+/*Graph bars alternate color.*/
+.BodyBox-graph-lower-bar:nth-child(even) {
+    background-color: var(--medium-grey);
+}
