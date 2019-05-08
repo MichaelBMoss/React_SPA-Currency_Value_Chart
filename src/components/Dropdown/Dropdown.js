@@ -14,10 +14,10 @@ class Dropdown extends Component {
   		<option value={option}>{option}</option>
 		);
     return (
-			<select onChange={this.props.onChange} className={this.props.identifier}>
-				<option value="Currency"> Currency</option>	
-				{options}
-			</select>
+			  <select onChange={this.props.onChange} className={this.props.identifier}>
+				  <option value="Currency"> Currency</option>	
+				  {options}
+			  </select>
 		);
   }
 }

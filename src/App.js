@@ -32,6 +32,9 @@ class App extends Component {
 
 	handleClear = () => {
     console.log('clear');
+    this.heightToZero();
+    setTimeout(() => this.eraseBars(), 400);
+    
   }
 	
 	heightTo100 = () => {
@@ -50,6 +53,12 @@ class App extends Component {
 		this.heightToZero();
 		setTimeout(() => this.makeBars(), 400);
 	}
+	
+	eraseBars = () => {
+	  this.setState({
+      selections: [],
+    });
+  }
 	
 	wait = () => {
 		console.log('wait');
@@ -119,17 +128,16 @@ class App extends Component {
 		      </div>
 		      <div className="SidebarAndBodyBox">
 		          <div className="SidebarBox">
-		              <div className="ButtonBox">
-		                  <br/>
-		                  <button onClick={this.handleClear} type="button">Clear Selections</button>
-		              </div>
 		              <div className="InputBox">
-										{five.map((num) =>
-											<Dropdown 
-											identifier={'select' + num}
-											onChange={this.handleChange}
-											options={this.state.currencies} 
-										/>)}                  
+		                <form className ="InputBox">
+		                  <input onClick={this.handleClear} type="reset" value="Clear Selections" /> 
+										  {five.map((num) =>
+											  <Dropdown 
+											  identifier={'select' + num}
+											  onChange={this.handleChange}
+											  options={this.state.currencies} 
+										  />)}  
+										</form>               
 		              </div>
 		          </div>
 		          <div className="BodyBox">
