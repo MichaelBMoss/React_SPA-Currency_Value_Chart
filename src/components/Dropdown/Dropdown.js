@@ -11,7 +11,7 @@ Props:
 class Dropdown extends Component {
   render() {
 		const options = this.props.options.map((option) =>
-  		<option value={option}>{option}</option>
+  		<option key={option} value={option}>{option}</option>
 		);
     return (
 			  <select onChange={this.props.onChange} className={this.props.identifier}>

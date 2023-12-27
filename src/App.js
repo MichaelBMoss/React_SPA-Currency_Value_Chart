@@ -16,7 +16,17 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch("https://api.exchangeratesapi.io/latest?base=USD")
+
+		var myHeaders = new Headers();
+		myHeaders.append("apikey", process.env.REACT_APP_EXCHANGE_RATES_API_KEY);
+		
+		var requestOptions = {
+		  method: 'GET',
+		  redirect: 'follow',
+		  headers: myHeaders
+		};
+		
+		fetch("https://api.apilayer.com/exchangerates_data/latest?base=USD", requestOptions)
 			.then(response => response.json())
 			.then(data => {
 				console.log("got data", data);
@@ -106,9 +116,9 @@ class App extends Component {
 
   render() {
 		let five = [1,2,3,4,5];
-		let bars = this.state.selections.map((selection) => {
+		let bars = this.state.selections.map((selection, index) => {
 			return selection !== 'Currency' ?					
-				<div className="BodyBox-graph-lower-bar" style={{height: this.state.relativeValues[selection] * 100 + '%'}}>
+				<div key={selection + index} className="BodyBox-graph-lower-bar" style={{height: this.state.relativeValues[selection] * 100 + '%'}}>
 					<p> 
 						{selection}
 					</p>  
@@ -131,13 +141,14 @@ class App extends Component {
 		              <div className="InputBox">
 		                <form className ="InputBox">
 		                  <input onClick={this.handleClear} type="reset" value="Clear Selections" /> 
-										  {five.map((num) =>
-											  <Dropdown 
-											  identifier={'select' + num}
-											  onChange={this.handleChange}
-											  options={this.state.currencies} 
-										  />)}  
-										</form>               
+							{five.map((num) =>
+								<Dropdown 
+								key={'dropdown-' + num}
+								identifier={'select' + num}
+								onChange={this.handleChange}
+								options={this.state.currencies} 
+							/>)}  
+						</form>               
 		              </div>
 		          </div>
 		          <div className="BodyBox">
