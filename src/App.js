@@ -18,7 +18,7 @@ class App extends Component {
 	componentDidMount() {
 
 		var myHeaders = new Headers();
-		myHeaders.append("apikey", process.env.REACT_APP_EXCHANGE_RATES_API_KEY);
+		myHeaders.append("apikey", MPuNmMVdDGeAgeHJRy6739YrnRhR9B3F);
 		
 		var requestOptions = {
 		  method: 'GET',
