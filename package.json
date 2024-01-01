@@ -1,8 +1,8 @@
 {
-  "name": "Currency-Value-Chart-with-React",
+  "homepage": "http://MichaelBMoss.github.io/React_SPA-Currency_Value_Chart",
+  "name": "React_SPA-Currency_Value_Chart",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -10,8 +10,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
